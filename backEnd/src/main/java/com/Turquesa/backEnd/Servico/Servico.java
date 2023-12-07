@@ -1,10 +1,13 @@
 package com.Turquesa.backEnd.Servico;
 
 
+import com.Turquesa.backEnd.categoria.Categoria;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "servico")
 @Table(name = "servicos")
@@ -20,6 +23,15 @@ public class Servico {
     private BigDecimal valor;
     private String descricao;
     private Boolean status;
+
+    @ManyToMany
+    @JoinTable(
+            name = "servico_categorias",
+            joinColumns = @JoinColumn(name = "servico_id"),
+            inverseJoinColumns = @JoinColumn(name = "categoria_id")
+    )
+    private Set<Categoria> categorias = new HashSet<>();
+
 
 
     

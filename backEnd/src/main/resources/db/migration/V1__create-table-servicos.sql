@@ -4,6 +4,6 @@ CREATE TABLE servicos (
     imagem TEXT NULL,
     valor DECIMAL(10,2),
     descricao VARCHAR(500),
-    status TINYINT not NULL,
+    status TINYINT NOT NULL,
     PRIMARY KEY (id)
 );
