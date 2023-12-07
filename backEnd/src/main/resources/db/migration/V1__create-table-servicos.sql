@@ -1,4 +1,4 @@
-CREATE TABLE servicos(
+CREATE TABLE servicos (
     id BIGINT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL,
     imagem TEXT NULL,
@@ -6,4 +6,4 @@ CREATE TABLE servicos(
     descricao VARCHAR(500),
     status TINYINT not NULL,
     PRIMARY KEY (id)
-)
+);

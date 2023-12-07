@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 @Getter@Setter@AllArgsConstructor@NoArgsConstructor
 public class Servico {
 
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
@@ -19,6 +20,9 @@ public class Servico {
     private BigDecimal valor;
     private String descricao;
     private Boolean status;
+
+
+    
 
     public Servico(ServicoRequestDTO dados){
         this.nome = dados.nome();
@@ -44,7 +48,6 @@ public class Servico {
         if (dados.status() != this.status){
             this.status = dados.status();
         }
-
     }
 }
 

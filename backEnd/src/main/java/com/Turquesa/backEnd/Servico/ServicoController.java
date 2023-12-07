@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/Turquesa/servicos")
+@RequestMapping("/apiFood/servicos")
 public class ServicoController {
 
     @Autowired

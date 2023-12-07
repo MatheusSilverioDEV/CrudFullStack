@@ -1,4 +1,8 @@
-import "./card.css"
+import './card.css'
+
+export interface CardProps {
+
+}
 
 export interface CardProps {
     nome: string,
@@ -8,13 +12,16 @@ export interface CardProps {
     status: boolean    
     onClick: () => void;
 
-
 }
 
-
-export function Card({ nome, imagem, valor, descricao, status, onClick }: CardProps) {
-    return (
-      <>
+export function Card({nome, imagem, valor, descricao, status, onClick}: CardProps){
+  
+  const statusStyle = {
+    color: status? 'green' : 'red',
+  };
+  
+  return( 
+        <>
         <div className="card" onClick={onClick}>
           <div className="cardImage">
             <img src={imagem} alt={nome} />
@@ -28,10 +35,8 @@ export function Card({ nome, imagem, valor, descricao, status, onClick }: CardPr
               <p className="descricao">{descricao}</p>
             </div>
           </div>
-          <footer>
-            <p>{status}</p>
-          </footer>
+            <p><b>Status: </b> <span style={statusStyle}>{status ? 'Ativo' : 'Inativo'}</span></p>
         </div>
       </>
-    );
-  }
+    )
+}
