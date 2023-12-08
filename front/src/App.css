@@ -22,9 +22,6 @@ body{
 
 .container button {
     font-weight: bold;
-    position: fixed;
-    bottom: 16px;
-    right: 24px;
     transition: all 0.1s linear 0.1s;
     width: 100px;
     height: 100px;
@@ -33,12 +30,28 @@ body{
     background-color: #F2E9CE;
     color: #A64E4E;
     border-color: #F2E9CE;
-  
-  }
-
-  .container button:hover {
-    transform: scale(1.1);
     cursor: pointer;
   
   }
+
+.container button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}  
+
+
+.buttonContainer {
+    display: flex;
+    align-items: flex-start;
+    position: fixed;
+    top: 900px; 
+}
+
+.buttonServico {
+    margin-right: 1000px;
+}
+
+.buttonCategoria {
+    margin-left: 900px;
+}
   

@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import axios, {AxiosPromise} from "axios";
-import { ServicoData } from "../interface/servicoData";
+import { ServicoData } from "../../interface/servicoData";
 
-const apiUrl = 'http://localhost:8080/Turquesa/servicos'
+const apiUrl = 'http://localhost:8080/apiFood/servicos'
 
 
 //GET

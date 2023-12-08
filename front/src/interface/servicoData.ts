@@ -5,5 +5,4 @@ export interface ServicoData{
     valor: number,
     descricao: string,
     status: boolean
-
 }

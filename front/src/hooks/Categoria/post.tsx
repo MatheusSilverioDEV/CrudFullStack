@@ -1,24 +1,23 @@
 import axios, { AxiosPromise } from "axios";
-import { ServicoData } from "../interface/servicoData";
+import { CategoriaData } from "../../interface/categoriaData";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-const apiURL = 'http://localhost:8080/Turquesa/servicos'
+const apiURL = 'http://localhost:8080/apiFood/categorias';
 
-//POST
-
-const postData = async (data: ServicoData): AxiosPromise<any> => {
+// POST
+const postData = async (data: CategoriaData): AxiosPromise<any> => {
     const response = axios.post(apiURL, data);
     return response;
-} 
+}
 
-export function useServicoDataPost(){
+export function useCategoriaDataPost() {
     const queryClient = useQueryClient();
     const mutate = useMutation({
         mutationFn: postData,
         retry: 2,
         onSuccess: () => {
-            queryClient.invalidateQueries({queryKey: ['servico-data']})
+            queryClient.invalidateQueries({ queryKey: ['categoria-data'] });
         }
-    })
-    return mutate
+    });
+    return mutate;
 }

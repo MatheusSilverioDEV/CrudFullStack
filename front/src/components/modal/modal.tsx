@@ -1,6 +1,6 @@
 import {useEffect, useState } from "react"
 import { ServicoData } from "../../interface/servicoData"
-import { useServicoDataPost } from "../../hooks/post"
+import { useServicoDataPost } from "../../hooks/Servico/post"
 import './modal.css';
 import Switch from 'react-switch';
 
