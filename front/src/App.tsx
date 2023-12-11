@@ -5,7 +5,7 @@ import { EditModal } from './components/editModal/editModal';
 import { CreateModal } from './components/modal/modal';
 import { CreateModalCategoria } from './components/modalCategoria.tsx/modalCategoria';
 import { useServicoData } from './hooks/Servico/get'
-import { ServicoData } from './interface/servicoData'
+import { ServicoData } from './interface/interfaces';
 import { useState } from 'react';
 
 
@@ -69,21 +69,21 @@ function App() {
           />
         )}
 
-      <div className='buttonContainer'>
-        <div className='buttonServico'>
-          {isCreateModalOpen && (
-            <CreateModal closeModal={handleCloseCreateModal} />
-          )}
-          <button onClick={handleOpenCreateModal}>Novo</button>
-        </div>
+  <div className='buttonContainer'>
+    <div className='buttonServico'>
+      {isCreateModalOpen && (
+        <CreateModal closeModal={handleCloseCreateModal} />
+      )}
+      <button onClick={handleOpenCreateModal}>Novo</button>
+    </div>
 
-        <div className='buttonCategoria'>
-          {isCreateModalCategoriaOpen && (
-            <CreateModalCategoria closeModal={handleCloseModalCategoria} />
-          )}
-          <button onClick={handleOpenCreateModalCategoria}>Categoria</button>
-        </div>
-      </div>
+    <div className='buttonCategoria'>
+      {isCreateModalCategoriaOpen && (
+        <CreateModalCategoria closeModal={handleCloseModalCategoria} />
+      )}
+      <button onClick={handleOpenCreateModalCategoria}>Categoria</button>
+    </div>
+  </div>
         
     </div>
     </>

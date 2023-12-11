@@ -1,5 +1,5 @@
 import axios, { AxiosPromise } from "axios";
-import { CategoriaData } from "../../interface/categoriaData";
+import { CategoriaData } from "../../interface/interfaces";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const apiURL = 'http://localhost:8080/apiFood/categorias';

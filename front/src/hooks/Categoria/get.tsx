@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import axios, {AxiosPromise} from "axios"
-import { CategoriaData } from "../../interface/categoriaData";
+import { CategoriaData } from "../../interface/interfaces";
 
-const apiUrl = 'http://localhost:8080/apiFood/servicos'
+const apiUrl = 'http://localhost:8080/apiFood/categorias'
 
 //GET
 const fetchData = async (): AxiosPromise<CategoriaData[]> =>{

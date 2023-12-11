@@ -1,6 +1,6 @@
 import {useEffect, useState } from "react"
 import "./modalCategoria.css"
-import { CategoriaData } from "../../interface/categoriaData"
+import { CategoriaData } from "../../interface/interfaces"
 import { useCategoriaDataPost } from "../../hooks/Categoria/post"
 
 export interface InputProps{
@@ -9,6 +9,7 @@ export interface InputProps{
     updateValue(value:any): void
 
 }
+
 
 export interface ModalProps{
     closeModal(): void
@@ -49,7 +50,7 @@ return(
     <>
     <div className="modal-overlay" onClick={closeModal}>
         <div className="modal-body" onClick={(e) => e.stopPropagation()}>
-            <h2>Gerenciar suas categorias</h2>
+            <h2>Cadastre uma categoria</h2>
             <form className="input-container">
                 <Input label="Nome" value={nome} updateValue={setNome}/>
             </form>

@@ -1,7 +1,7 @@
 import axios, {AxiosPromise} from "axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-const apiURL = 'http://localhost:8080/apiFood/servicos';
+const apiURL = 'http://localhost:8080/apiFood/categorias';
 
 // DELETE
 const deleteData = async (id: number): AxiosPromise<any> => {

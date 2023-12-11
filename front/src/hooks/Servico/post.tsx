@@ -1,7 +1,6 @@
 import axios, { AxiosPromise } from "axios";
-import { ServicoData } from "../../interface/servicoData";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
+import { ServicoData } from "../../interface/interfaces";
 const apiURL = 'http://localhost:8080/apiFood/servicos'
 
 //POST

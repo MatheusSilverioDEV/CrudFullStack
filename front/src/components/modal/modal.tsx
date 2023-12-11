@@ -1,9 +1,15 @@
 import {useEffect, useState } from "react"
-import { ServicoData } from "../../interface/servicoData"
+import { ServicoData } from "../../interface/interfaces";
 import { useServicoDataPost } from "../../hooks/Servico/post"
 import './modal.css';
 import Switch from 'react-switch';
+import { useCategoriaData } from "../../hooks/Categoria/get";
 
+
+interface Categoria {
+    id: number;
+    nome: string;
+  }
 
 export interface InputProps {
     label: string,
@@ -31,22 +37,42 @@ export function CreateModal({closeModal} : ModalProps){
     const [valor, setValor] = useState(0);
     const [descricao, setDescricao] = useState("");
     const [status, setStatus] = useState(true);
+    const { data: categorias, isLoading, isError } = useCategoriaData();
     const {mutate, isSuccess} = useServicoDataPost();
+    const [selectedCategorias, setSelectedCategorias] = useState<Categoria[]>([]);
+
 
     const toggleStatus = () => {
         setStatus((prevStatus) => !prevStatus);
       };
 
-    const submit = () => {
-        const servicoData: ServicoData = {
-            nome,
-            imagem,
-            valor,
-            descricao,
-            status
-        }
-        mutate(servicoData)
-    }
+      const handleCategoriaChange = (
+        event: React.ChangeEvent<HTMLSelectElement>
+      ) => {
+        const selectedCategorias: Categoria[] = Array.from(
+          event.target.selectedOptions,
+          (option) => ({
+            id: Number(option.value),
+            nome: option.text,
+          })
+        );
+        setSelectedCategorias(selectedCategorias);
+      };
+
+const submit = () => {
+  const servicoData: ServicoData = {
+    nome,
+    imagem,
+    valor,
+    descricao,
+    status,
+    categorias: selectedCategorias.map((categoria) => categoria.id),
+
+
+  };
+  mutate(servicoData);
+};
+    
     
     useEffect(() => {
         if(!isSuccess) return
@@ -63,8 +89,15 @@ export function CreateModal({closeModal} : ModalProps){
                     <Input label="Imagem" value={imagem} updateValue={setImagem}/>
                     <Input label="Valor" value={valor} updateValue={setValor}/>
                     <Input label="Descricão" value={descricao} updateValue={setDescricao}/>
+                    <label>Categorias</label>
+                    <select multiple value={categorias?.map(String)} onChange={handleCategoriaChange}>           
+                    {categorias?.map((categoria) => (
+                        <option key={categoria.id} value={categoria.id}>
+                        {categoria.nome}
+                        </option>
+                        ))}
+                 </select>
                 </form>
-     
                 <button onClick={submit} className="btn-secondary">Postar</button>
                 <button onClick={closeModal} className="btn-secondary">Fechar</button>
                 <p>Status: Inativo/Ativo
