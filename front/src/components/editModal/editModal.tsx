@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { ServicoData } from "../../interface/servicoData";
 import { ModalProps, Input } from "../modal/modal";
 import { useServicoDataPut } from "../../hooks/Servico/put";
 import { useServicoDataDelete } from "../../hooks/Servico/delete";
+import { ServicoData } from "../../interface/interfaces";
 import Switch from 'react-switch';
 
 import './editModal.css'

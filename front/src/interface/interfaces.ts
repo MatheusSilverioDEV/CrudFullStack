@@ -1,6 +1,7 @@
 export interface CategoriaData {
     id?: number;
     nome: string;
+    value?: number;
   }
 
   export interface ServicoData{
@@ -12,4 +13,9 @@ export interface CategoriaData {
     status: boolean,
     categorias?: number[] // Se categorias for undefined, use um array vazio
 
+}
+
+export interface CategoriasList {
+  categorias?: CategoriaData[];
+  data: any;
 }

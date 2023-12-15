@@ -3,84 +3,115 @@ import { ServicoData } from "../../interface/interfaces";
 import { useServicoDataPost } from "../../hooks/Servico/post"
 import './modal.css';
 import Switch from 'react-switch';
-import { useCategoriaData } from "../../hooks/Categoria/get";
+import { useCategoriaData, useCategoriaDataList } from "../../hooks/Categoria/get";
+import Select, { MultiValue, ActionMeta} from "react-select";
 
-
-interface Categoria {
-    id: number;
-    nome: string;
-  }
+const mapCategoriasToOptions = (categorias?: Categoria[]) => {
+  return categorias
+    ? categorias.map((categoria) => ({
+        label: categoria.nome,
+        value: categoria.id,
+      }))
+    : [];
+};
+export interface Categoria {
+  id: number;
+  nome: string;
+  value?:number;
+}
 
 export interface InputProps {
-    label: string,
-    value: string | number
-    updateValue(value:any): void
+  label: string,
+  value: string | number
+  updateValue(value:any): void
 
 }
 export interface ModalProps{
-    closeModal(): void
+  closeModal(): void
 }
 
 export const Input = ({label, value, updateValue} : InputProps) => {
-    return(
-        <>
-        <label>{label}</label>
-        <input value={value} onChange={e => updateValue(e.target.value)}/>
-        </>
-    )
+  return(
+      <>
+      <label>{label}</label>
+      <input value={value} onChange={e => updateValue(e.target.value)}/>
+      </>
+  )
 
 }
 
 export function CreateModal({closeModal} : ModalProps){
-    const [nome, setNome] = useState("");
-    const [imagem, setImagem] = useState("");
-    const [valor, setValor] = useState(0);
-    const [descricao, setDescricao] = useState("");
-    const [status, setStatus] = useState(true);
-    const { data: categorias, isLoading, isError } = useCategoriaData();
-    const {mutate, isSuccess} = useServicoDataPost();
-    const [selectedCategorias, setSelectedCategorias] = useState<Categoria[]>([]);
+const [nome, setNome] = useState("");
+const [imagem, setImagem] = useState("");
+const [valor, setValor] = useState(0);
+const [descricao, setDescricao] = useState("");
+const [status, setStatus] = useState(true);
+const [isCategoriasEnabled, setIsCategoriasEnabled] = useState(false);
+const [selectedCategorias, setSelectedCategorias] = useState<Array<{ value: number; label: string; }>>([]);
+const {data: categoriasList } = useCategoriaDataList();
+const {mutate, isSuccess} = useServicoDataPost();
+const [options, setOptions] = useState<Array<{ value: number; label: string }>>([]);
 
 
-    const toggleStatus = () => {
-        setStatus((prevStatus) => !prevStatus);
-      };
-
-      const handleCategoriaChange = (
-        event: React.ChangeEvent<HTMLSelectElement>
-      ) => {
-        const selectedCategorias: Categoria[] = Array.from(
-          event.target.selectedOptions,
-          (option) => ({
-            id: Number(option.value),
-            nome: option.text,
-          })
-        );
-        setSelectedCategorias(selectedCategorias);
-      };
-
-const submit = () => {
-  const servicoData: ServicoData = {
-    nome,
-    imagem,
-    valor,
-    descricao,
-    status,
-    categorias: selectedCategorias.map((categoria) => categoria.id),
 
 
-  };
-  mutate(servicoData);
+
+  
+const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setIsCategoriasEnabled(e.target.checked ? true : false);
 };
+
+
+const toggleStatus = () => {
+   setStatus((prevStatus) => !prevStatus);
+};
+
+  
+  
+const handleCategoriaChange = (
+    categoria: MultiValue<{ value: number; label: string; }> | null,
+    actionMeta: ActionMeta<{ value: number; label: string; }>
+  ) => {
+  if (!categoriasList?.data || !categoria) return;
+      
+  const updatedCategorias = categoria.map((value) => ({ value: value.value, label: value.label }));
+  setSelectedCategorias(updatedCategorias);
+  setIsCategoriasEnabled(updatedCategorias.length > 0);
+};
+
     
     
-    useEffect(() => {
-        if(!isSuccess) return
-        closeModal();
-    }, [isSuccess])
+    const submit = () => {
+      const servicoData: ServicoData = {
+        nome,
+        imagem,
+        valor,
+        descricao,
+        status,
+        categorias: isCategoriasEnabled ? selectedCategorias?.map((categoria) => categoria.value) : [],
+      };
+      mutate(servicoData);
+    };
+  
+  useEffect(() => {
+      if(!isSuccess) return
+      closeModal();
+  }, [isSuccess])
+
+  useEffect(() => {
+    setOptions(mapCategoriasToOptions(categoriasList.data));
+  }, [categoriasList.data]);
+  
+  
+
+
+
+
 
     return(
         <>
+
+              
                 <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-body" onClick={(e) => e.stopPropagation()}>
                 <h2>Cadastre um novo item no cardápio</h2>
@@ -90,13 +121,16 @@ const submit = () => {
                     <Input label="Valor" value={valor} updateValue={setValor}/>
                     <Input label="Descricão" value={descricao} updateValue={setDescricao}/>
                     <label>Categorias</label>
-                    <select multiple value={categorias?.map(String)} onChange={handleCategoriaChange}>           
-                    {categorias?.map((categoria) => (
-                        <option key={categoria.id} value={categoria.id}>
-                        {categoria.nome}
-                        </option>
-                        ))}
-                 </select>
+                    <Select
+                      isDisabled ={!isCategoriasEnabled}
+                      options={options}
+                      value={selectedCategorias}
+                      onChange={handleCategoriaChange}
+                      isMulti
+                      placeholder="Selecione uma categoria"
+                    />
+                      <input type="checkbox" checked={isCategoriasEnabled} onChange={handleCheckboxChange} />
+                      
                 </form>
                 <button onClick={submit} className="btn-secondary">Postar</button>
                 <button onClick={closeModal} className="btn-secondary">Fechar</button>
@@ -119,5 +153,5 @@ const submit = () => {
             </div>
         </div>
         </>
-    )
+    ) 
 }
