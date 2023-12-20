@@ -5,11 +5,17 @@ import { CategoriaData, CategoriasList} from "../../interface/interfaces";
 const apiUrl = 'http://localhost:8080/apiFood/categorias'
 
 //GET DATA
-const fetchData = async (): AxiosPromise<CategoriaData[]> =>{
+const fetchData = async (): AxiosPromise<CategoriasList> => {
+  try {
+    console.log("Fetching data from API...");
     const response = await axios.get(apiUrl);
-    return response.data.data;
+    console.log("Data fetched successfully:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error; // Propaga o erro para que seja tratado pelo React Query
+  }
 }
-
 //HOOK DATA
 export function useCategoriaData(){
     const query = useQuery({
@@ -24,32 +30,28 @@ export function useCategoriaData(){
     }
 }
 
+//HOOk DATALIST
 
+export const useCategoriaDataList = () => {
+  const query = useQuery<CategoriaData[]>({
+    queryFn: async () => {
+      try {
+        const response = await axios.get(apiUrl);
+        const data = response.data;
+        
+        console.log("Dados retornados pelo useCategoriaDataList:", data);
 
-//GET LIST
-const fetchDataList = async () => {
-    const response = await axios.get(apiUrl);
-  
-    if (response.data) {
-      return response.data.categorias.map((categoria: { id: number; nome: string; }) => ({
-        id: categoria.id,
-        nome: categoria.nome,
-      }));
-    } else {
-      return [];
-    }
-  };
+        return data;
+      } catch (error) {
+        console.error("Erro ao obter dados:", error);
+        throw error;
+      }
+    },
+    queryKey: ["categorias"],
+    retry: 2,
+  });
 
-//HOOK LIST
-export function useCategoriaDataList() {
-    const query = useQuery({
-        queryFn: fetchDataList,
-        queryKey: ["categorias"],
-        retry: 2,
-    });
+  return query;
+};
 
-    return { data: query.data?.categorias || [] };
-    
-}
-  
 

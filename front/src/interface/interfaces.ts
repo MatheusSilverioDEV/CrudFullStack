@@ -1,8 +1,8 @@
 export interface CategoriaData {
-    id?: number;
-    nome: string;
-    value?: number;
-  }
+  id: number;
+  nome: string;
+}
+
 
   export interface ServicoData{
     id?: number,
@@ -16,6 +16,5 @@ export interface CategoriaData {
 }
 
 export interface CategoriasList {
-  categorias?: CategoriaData[];
-  data: any;
+  data: CategoriaData[];
 }

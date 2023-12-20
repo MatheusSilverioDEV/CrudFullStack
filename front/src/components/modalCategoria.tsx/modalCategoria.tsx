@@ -35,8 +35,9 @@ export function CreateModalCategoria({closeModal} : ModalProps){
 
 const submit = () => {
     const categoriaData: CategoriaData = {
+        
         nome
-    }
+    }   
 
     mutate(categoriaData)
 }
