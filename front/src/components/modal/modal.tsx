@@ -137,7 +137,12 @@ export function CreateModal({ closeModal }: ModalProps) {
               placeholder="Selecione uma categoria"
             />
           )}
-          <input type="checkbox" checked={isCategoriasEnabled} onChange={handleCheckboxChange} />
+            <div className="checkbox-container">
+            <div className="checkbox-wrapper">
+              <input type="checkbox" name="Habilitar categorias" checked={isCategoriasEnabled} onChange={handleCheckboxChange} />
+            </div>
+            <label htmlFor="Habilitar categorias">Habilitar categorias</label>
+          </div>
         </form>
         <div className="button-container">
           <button onClick={submit} className="btn-secondary">

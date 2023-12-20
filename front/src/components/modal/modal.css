@@ -78,5 +78,16 @@ select {
     width: 100px;
     margin-left: 5px;
 }
-
+.checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+  
+.checkbox-wrapper {
+    margin-right: 8px;
+  }
+  
+ label {
+    display: inline-block;
+  }
 
