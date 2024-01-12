@@ -1,0 +1,149 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mdeleted file mode 100644[m
+[1mindex 5c65ead..0000000[m
+[1m--- a/README.md[m
+[1m+++ /dev/null[m
+[36m@@ -1,9 +0,0 @@[m
+[31m-Projeto em desenvolvimento, estou criando um totem de atendimento que funcione tanto quanto no desktop como no mobile, onde o proprietario do restaurante pode criar seu próprio cardapio e controlar os status de seus items e pedidos.[m
+[31m-[m
+[31m-Estou usando as tecnologias:[m
+[31m--Java[m
+[31m--Spring boot[m
+[31m--React[m
+[31m--Typescript[m
+[31m--Mysql[m
+[31m--Flyway Migration[m
+[1mdiff --git a/backEnd/hs_err_pid14744.log b/backEnd/hs_err_pid14744.log[m
+[1mdeleted file mode 100644[m
+[1mindex 17aaa91..0000000[m
+[1m--- a/backEnd/hs_err_pid14744.log[m
+[1m+++ /dev/null[m
+[36m@@ -1,768 +0,0 @@[m
+[31m-#[m
+[31m-# There is insufficient memory for the Java Runtime Environment to continue.[m
+[31m-# Native memory allocation (malloc) failed to allocate 32744 bytes for Chunk::new[m
+[31m-# Possible reasons:[m
+[31m-#   The system is out of physical RAM or swap space[m
+[31m-#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap[m
+[31m-# Possible solutions:[m
+[31m-#   Reduce memory load on the system[m
+[31m-#   Increase physical memory or swap space[m
+[31m-#   Check if swap backing store is full[m
+[31m-#   Decrease Java heap size (-Xmx/-Xms)[m
+[31m-#   Decrease number of Java threads[m
+[31m-#   Decrease Java thread stack sizes (-Xss)[m
+[31m-#   Set larger code cache with -XX:ReservedCodeCacheSize=[m
+[31m-#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is[m
+[31m-#     placed in the first 4GB address space. The Java Heap base address is the[m
+[31m-#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress[m
+[31m-#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.[m
+[31m-# This output file may be truncated or incomplete.[m
+[31m-#[m
+[31m-#  Out of Memory Error (arena.cpp:184), pid=14744, tid=7876[m
+[31m-#[m
+[31m-# JRE version: Java(TM) SE Runtime Environment (20.0.1+9) (build 20.0.1+9-29)[m
+[31m-# Java VM: Java HotSpot(TM) 64-Bit Server VM (20.0.1+9-29, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)[m
+[31m-# No core dump will be written. Minidumps are not enabled by default on client versions of Windows[m
+[31m-#[m
+[31m-[m
+[31m----------------  S U M M A R Y ------------[m
+[31m-[m
+[31m-Command Line: -XX:+ShowCodeDetailsInExceptionMessages com.Turquesa.backEnd.BackEndApplication[m
+[31m-[m
+[31m-Host: Intel(R) Core(TM) i3-9100T CPU @ 3.10GHz, 4 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)[m
+[31m-Time: Mon Dec 18 16:10:53 2023 Hora oficial do Brasil elapsed time: 2944.604856 seconds (0d 0h 49m 4s)[m
+[31m-[m
+[31m----------------  T H R E A D  ---------------[m
+[31m-[m
+[31m-Current thread (0x000001cccbcf6a20):  JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=7876, stack(0x0000004992000000,0x0000004992100000)][m
+[31m-[m
+[31m-[m
+[31m-Current CompileTask:[m
+[31m-C2:2944604 8203   !   4       org.apache.tomcat.util.buf.StringCache::toString (601 bytes)[m
+[31m-[m
+[31m-Stack: [0x0000004992000000,0x0000004992100000][m
+[31m-Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)[m
+[31m-V  [jvm.dll+0x6bb95a][m
+[31m-V  [jvm.dll+0x8485fa][m
+[31m-V  [jvm.dll+0x84a1f5][m
+[31m-V  [jvm.dll+0x84a8f3][m
+[31m-V  [jvm.dll+0x280b0f][m
+[31m-V  [jvm.dll+0xc2b11][m
+[31m-V  [jvm.dll+0xc2e35][m
+[31m-V  [jvm.dll+0x20b11e][m
+[31m-V  [jvm.dll+0x20dae1][m
+[31m-V  [jvm.dll+0x20eb51][m
+[31m-V  [jvm.dll+0x20de9e][m
+[31m-V  [jvm.dll+0x1f9720][m
+[31m-V  [jvm.dll+0x149b0b][m
+[31m-V  [jvm.dll+0x2f31fc][m
+[31m-V  [jvm.dll+0x2f4f70][m
+[31m-V  [jvm.dll+0x6d3c22][m
+[31m-V  [jvm.dll+0x6cbca6][m
+[31m-V  [jvm.dll+0x6cb2f1][m
+[31m-V  [jvm.dll+0x6c94f4][m
+[31m-V  [jvm.dll+0x1d169c][m
+[31m-V  [jvm.dll+0x1d222b][m
+[31m-V  [jvm.dll+0x2f4fec][m
+[31m-V  [jvm.dll+0x6d3c22][m
+[31m-V  [jvm.dll+0x6cbca6][m
+[31m-V  [jvm.dll+0x6cb2f1][m
+[31m-V  [jvm.dll+0x6c94f4][m
+[31m-V  [jvm.dll+0x1d169c][m
+[31m-V  [jvm.dll+0x1d222b][m
+[31m-V  [jvm.dll+0x2f4fec][m
+[31m-V  [jvm.dll+0x6d3c22][m
+[31m-V  [jvm.dll+0x6cbca6][m
+[31m-V  [jvm.dll+0x6cb2f1][m
+[31m-V  [jvm.dll+0x6c94f4][m
+[31m-V  [jvm.dll+0x1d169c][m
+[31m-V  [jvm.dll+0x1d222b][m
+[31m-V  [jvm.dll+0x2f4fec][m
+[31m-V  [jvm.dll+0x6d3c22][m
+[31m-V  [jvm.dll+0x6cbca6][m
+[31m-V  [jvm.dll+0x6cb2f1][m
+[31m-V  [jvm.dll+0x6c94f4][m
+[31m-V  [jvm.dll+0x1d169c][m
+[31m-V  [jvm.dll+0x24a203][m
+[31m-V  [jvm.dll+0x1ce491][m
+[31m-V  [jvm.dll+0x259e1b][m
+[31m-V  [jvm.dll+0x2584f0][m
+[31m-V  [jvm.dll+0x3f2895][m
+[31m-V  [jvm.dll+0x7f4b56][m
+[31m-V  [jvm.dll+0x6ba5cb][m
+[31m-C  [ucrtbase.dll+0x21bb2][m
+[31m-C  [KERNEL32.DLL+0x17344][m
+[31m-C  [ntdll.dll+0x526b1][m
+[31m-[m
+[31m-[m
+[31m----------------  P R O C E S S  ---------------[m
+[31m-[m
+[31m-Threads class SMR info:[m
+[31m-_java_thread_list=0x000001ccd2cf3640, length=30, elements={[m
+[31m-0x000001cccbcecc50, 0x000001cccbceda50, 0x000001cccbcf11d0, 0x000001cccbcf4b30,[m
+[31m-0x000001cccbcf5470, 0x000001cccbcf5db0, 0x000001cccbcf6a20, 0x000001cccbcf93b0,[m
+[31m-0x000001ccd00f1030, 0x000001ccd00f79d0, 0x000001ccd1911080, 0x000001ccd1910090,[m
+[31m-0x000001ccd19105e0, 0x000001ccd2d91e90, 0x000001ccd2d90ea0, 0x000001ccd2d93920,[m
+[31m-0x000001ccd2d913f0, 0x000001ccd2d91940, 0x000001ccd2d92930, 0x000001ccd2d933d0,[m
+[31m-0x000001ccd2d93e70, 0x000001ccd2f52000, 0x000001ccd2f55fc0, 0x000001ccd2f57fa0,[m
+[31m-0x000001ccd2f52ff0, 0x000001ccd2f54a80, 0x000001ccd2f54fd0, 0x000001ccd2f53540,[m
+[31m-0x000001ccd2f55520, 0x000001ccd2f594e0[m
+[31m-}[m
+[31m-[m
+[31m-Java Threads: ( => current thread )[m
+[31m-  0x000001cccbcecc50 JavaThread "Reference Handler" daemon [_thread_blocked, id=10212, stack(0x0000004991a00000,0x0000004991b00000)][m
+[31m-  0x000001cccbceda50 JavaThread "Finalizer" daemon [_thread_blocked, id=6564, stack(0x0000004991b00000,0x0000004991c00000)][m
+[31m-  0x000001cccbcf11d0 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=6048, stack(0x0000004991c00000,0x0000004991d00000)][m
+[31m-  0x000001cccbcf4b30 JavaThread "Attach Listener" daemon [_thread_blocked, id=6532, stack(0x0000004991d00000,0x0000004991e00000)][m
+[31m-  0x000001cccbcf5470 JavaThread "Service Thread" daemon [_thread_blocked, id=1768, stack(0x0000004991e00000,0x0000004991f00000)][m
+[31m-  0x000001cccbcf5db0 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=6524, stack(0x0000004991f00000,0x0000004992000000)][m
+[31m-=>0x000001cccbcf6a20 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=7876, stack(0x0000004992000000,0x0000004992100000)][m
+[31m-  0x000001cccbcf93b0 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=7448, stack(0x0000004992100000,0x0000004992200000)][m
+[31m-  0x000001ccd00f1030 JavaThread "Notification Thread" daemon [_thread_blocked, id=7556, stack(0x0000004992200000,0x0000004992300000)][m
+[31m-  0x000001ccd00f79d0 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=11424, stack(0x0000004992400000,0x0000004992500000)][m
+[31m-  0x000001ccd1911080 JavaThread "Catalina-utility-1" [_thread_blocked, id=12876, stack(0x0000004992b00000,0x0000004992c00000)][m
+[31m-  0x000001ccd1910090 JavaThread "Catalina-utility-2" [_thread_blocked, id=9740, stack(0x0000004992c00000,0x0000004992d00000)][m
+[31m-  0x000001ccd19105e0 JavaThread "container-0" [_thread_blocked, id=12448, stack(0x0000004992d00000,0x0000004992e00000)][m
+[31m-  0x000001ccd2d91e90 JavaThread "mysql-cj-abandoned-connection-cleanup" daemon [_thread_blocked, id=9152, stack(0x0000004992e00000,0x0000004992f00000)][m
+[31m-  0x000001ccd2d90ea0 JavaThread "HikariPool-1 housekeeper" daemon [_thread_blocked, id=8488, stack(0x0000004993000000,0x0000004993100000)][m
+[31m-  0x000001ccd2d93920 JavaThread "File Watcher" daemon [_thread_blocked, id=6448, stack(0x0000004993200000,0x
