@@ -1,5 +1,5 @@
 export interface CategoriaData {
-  id: number;
+  id: number,
   nome: string;
 }
 
@@ -11,10 +11,11 @@ export interface CategoriaData {
     valor: number,
     descricao: string,
     status: boolean,
-    categorias?: number[] // Se categorias for undefined, use um array vazio
+    categorias?: CategoriaData[] // Se categorias for undefined, use um array vazio
 
 }
 
 export interface CategoriasList {
   data: CategoriaData[];
 }
+
