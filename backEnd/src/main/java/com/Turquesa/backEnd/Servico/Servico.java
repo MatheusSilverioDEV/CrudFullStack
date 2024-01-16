@@ -1,4 +1,4 @@
-package com.Turquesa.backEnd.Servico;
+package com.Turquesa.backEnd.servico;
 
 
 import com.Turquesa.backEnd.categoria.Categoria;
@@ -35,7 +35,7 @@ public class Servico {
 
 
     
-
+    
     public Servico(ServicoRequestDTO dados){
         this.nome = dados.nome();
         this.imagem = dados.imagem();

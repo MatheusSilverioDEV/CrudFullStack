@@ -1,4 +1,4 @@
-package com.Turquesa.backEnd.Servico;
+package com.Turquesa.backEnd.servico;
 
 import com.Turquesa.backEnd.categoria.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;

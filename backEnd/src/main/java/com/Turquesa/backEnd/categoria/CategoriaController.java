@@ -1,13 +1,14 @@
 package com.Turquesa.backEnd.categoria;
 
-import com.Turquesa.backEnd.Servico.Servico;
-import com.Turquesa.backEnd.Servico.ServicoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
+import com.Turquesa.backEnd.servico.Servico;
+import com.Turquesa.backEnd.servico.ServicoRepository;
 
 import java.util.List;
 import java.util.Map;

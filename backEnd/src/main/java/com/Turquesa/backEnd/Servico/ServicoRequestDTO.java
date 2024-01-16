@@ -1,4 +1,4 @@
-package com.Turquesa.backEnd.Servico;
+package com.Turquesa.backEnd.servico;
 
 import java.math.BigDecimal;
 import java.util.Set;
