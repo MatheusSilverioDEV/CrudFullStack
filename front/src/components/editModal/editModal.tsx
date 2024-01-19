@@ -144,7 +144,6 @@
                         <Input label="Valor" value={valor} updateValue={setValor} />
                         <Input label="Descricão" value={descricao} updateValue={setDescricao}/>
                         <label>Categorias</label>
-                        <label>Categorias</label>
                           <Select
                             isDisabled={!isCategoriasEnabled}
                             options={optionsComChaves} 
@@ -153,11 +152,12 @@
                             isMulti
                             placeholder="Selecione uma categoria"
                           />
-                          <label>
-                          <input
-                              type="checkbox" checked={isCategoriasEnabled} onChange={() => setIsCategoriasEnabled((prev) => !prev)} />
-                          Habilitar categorias
-                          </label>
+                            <div className="checkbox-container">
+                            <div className="checkbox-wrapper">
+                            <input id="checkcat" type="checkbox" checked={isCategoriasEnabled} onChange={() => setIsCategoriasEnabled((prev) => !prev)} />
+                            </div>
+                            <label htmlFor="checkcat">Habilitar categorias</label>
+                          </div>
                     </form>
                     <div className="button-container">
                         <button onClick={submit} className="btn-secondary">Atualizar</button>

@@ -139,9 +139,9 @@
             )}
               <div className="checkbox-container">
               <div className="checkbox-wrapper">
-                <input type="checkbox" name="Habilitar categorias" checked={isCategoriasEnabled} onChange={handleCheckboxChange} />
+                <input type="checkbox" id="checkcat" checked={isCategoriasEnabled} onChange={handleCheckboxChange} />
               </div>
-              <label htmlFor="Habilitar categorias">Habilitar categorias</label>
+              <label htmlFor="checkcat">Habilitar categorias</label>
             </div>
           </form>
           <div className="button-container">

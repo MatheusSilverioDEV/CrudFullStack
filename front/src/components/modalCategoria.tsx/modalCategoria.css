@@ -1,0 +1,29 @@
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category-row {
+  display: flex;
+  flex-direction: row;
+  width: 20%; /* Adjust width for desired layout */
+  margin-bottom: 10px; /* Add spacing between rows */
+  float: left; /* Float elements on the left */
+
+}
+
+.alterar {
+  margin-left: 5px;
+  background-color: #A64E4E !important;
+  width: 45px !important;
+  height: 30px !important;
+  padding: 0 !important;
+}
+.excluir{
+  margin-left: 5px;
+  background-color: #A64E4E !important;
+  width: 45px !important;
+  height: 30px !important;
+  padding: 0 !important;
+
+}

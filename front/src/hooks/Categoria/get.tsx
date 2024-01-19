@@ -1,21 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import axios, {AxiosPromise} from "axios"
-import { CategoriaData, CategoriasList} from "../../interface/interfaces";
+import { CategoriaData} from "../../interface/interfaces";
 
 const apiUrl = 'http://localhost:8080/apiFood/categorias'
 
 //GET DATA
-const fetchData = async (): AxiosPromise<CategoriasList> => {
-  try {
-    console.log("Fetching data from API...");
-    const response = await axios.get(apiUrl);
-    console.log("Data fetched successfully:", response.data);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error; // Propaga o erro para que seja tratado pelo React Query
-  }
+const fetchData = async (): AxiosPromise<CategoriaData> => {
+  const response = axios.get(apiUrl);
+  return response;
 }
+
+
+
+
 //HOOK DATA
 export function useCategoriaData(){
     const query = useQuery({

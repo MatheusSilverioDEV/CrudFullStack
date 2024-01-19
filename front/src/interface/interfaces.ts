@@ -1,5 +1,5 @@
 export interface CategoriaData {
-  id: number,
+  id?: number,
   nome: string;
 }
 
@@ -15,7 +15,7 @@ export interface CategoriaData {
 
 }
 
-export interface CategoriasList {
+export interface CategoriaList {
   data: CategoriaData[];
 }
 
